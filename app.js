@@ -1,5 +1,9 @@
 const express = require('express');
 const app = express();
+
+
+ 
+
 const port = process.env.PORT || 2000;
 const nav = [
     {
@@ -9,7 +13,7 @@ const nav = [
         link:'/authors', name: 'Author'
     },
     {
-        link:'/add',name :'Add Books'
+        link:'/admin',name :'Add Books'
     },
     
     {
@@ -28,10 +32,11 @@ const booksRouter = require('./src/routes/bookRoutes')(nav);
 const authorsRouter = require('./src/routes/authorRoutes')(nav);
 const signupRouter = require('./src/routes/signupRoutes')(nav);
 const loginRouter = require('./src/routes/loginRoutes')(nav);
-const addRouter = require('./src/routes/addRoutes')(nav);
+const adminRouter = require('./src/routes/adminRoutes')(nav);
 
 
 app.use(express.urlencoded({extended:true}));
+
 
 
 app.use(express.static('./public'));
@@ -44,7 +49,7 @@ app.use('/books',booksRouter);
 app.use('/authors',authorsRouter);
 app.use('/signup',signupRouter);
 app.use('/login',loginRouter);
-app.use('/add',addRouter);
+app.use('/admin',adminRouter);
 
 
 app.get('/', function(req,res){
