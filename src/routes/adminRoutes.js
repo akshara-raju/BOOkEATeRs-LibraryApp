@@ -4,6 +4,7 @@ const Bookdata = require('../model/Bookdata');
 
 
 
+
 function router(nav){
     adminRouter.get('/',function(req,res){
         res.render('addBook', {
@@ -20,7 +21,8 @@ function router(nav){
             title: req.body.title,
             author: req.body.author,
             genre: req.body.genre,
-            image: req.body.image
+            image: req.body.image,
+            about: req.body.about
 
         }
         var book = Bookdata(items);
@@ -28,6 +30,19 @@ function router(nav){
         res.redirect('/books');
         
     });
+    adminRouter.get('/:id',function(req,res){
+        const id = req.params.id;
+        
+        Bookdata.deleteOne({_id:id})
+        .then(function(books){
+            res.redirect('/books');
+
+        });
+        
+    
+    });
+
+    
 
     return adminRouter;
 

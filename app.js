@@ -15,6 +15,9 @@ const nav = [
     {
         link:'/admin',name :'Add Books'
     },
+    {
+        link:'/admin1',name:'Add Authors'
+    },
     
     {
         link:'/signup',name :'Sign Up'
@@ -33,6 +36,8 @@ const authorsRouter = require('./src/routes/authorRoutes')(nav);
 const signupRouter = require('./src/routes/signupRoutes')(nav);
 const loginRouter = require('./src/routes/loginRoutes')(nav);
 const adminRouter = require('./src/routes/adminRoutes')(nav);
+const admin1Router = require('./src/routes/addAuthorRoutes')(nav);
+const upbookRouter = require('./src/routes/addBookRoutes')(nav);
 
 
 app.use(express.urlencoded({extended:true}));
@@ -50,6 +55,11 @@ app.use('/authors',authorsRouter);
 app.use('/signup',signupRouter);
 app.use('/login',loginRouter);
 app.use('/admin',adminRouter);
+app.use('/admin1',admin1Router);
+app.use('/update',upbookRouter);
+
+
+
 
 
 app.get('/', function(req,res){
