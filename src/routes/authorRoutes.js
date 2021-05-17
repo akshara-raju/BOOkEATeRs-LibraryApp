@@ -1,7 +1,7 @@
 const express = require('express');
 
 const authorsRouter = express.Router();
-const Authordata = require('../model/Authordata')
+const Authordata = require('../model/Authordata');
 function router(nav) {
 
     authorsRouter.get('/',function(req,res){
@@ -16,7 +16,7 @@ function router(nav) {
         );
 
 
-        })
+        });
         
         
     });

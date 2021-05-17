@@ -8,6 +8,7 @@ const Schema = mongoose.Schema;
 const AuthorSchema = new Schema({
     author : String,
     born : String,
+    about : String,
     image : String
 });
 

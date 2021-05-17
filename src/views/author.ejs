@@ -96,17 +96,17 @@
             <div class="row">    
               <br>
               <div class="col-md-2 col-sm-3 text-center">
-                <a class="story-title" href="#"><img alt="" src="/img/<%=author.image%>" style="width:100px;height:100px" class="img-circle"></a>
+                <a class="story-title" href="#"><img alt="" src="<%=author.image%>" style="width:100px;height:100px" class="img-circle"></a>
               </div>
               <div class="col-md-10 col-sm-9">
                 <h3><%=author.author%></h3>
                 <div class="row">
                   <div class="col-xs-9">
-                    <h4><span class="label label-default"></span><%=author.born%></h4><h4>
+                    <h4><span class="label label-default"></span>Born: <%=author.born%></h4><h4>
                     <small style="font-family:courier,'new courier';" class="text-muted">  
                         
                     </h4>
-                    <!-- <h4><%=author.disc%></h4> -->
+                    <h4><%=author.about%></h4>
                   </div>
                   <div class="col-xs-3"></div>
 
@@ -114,6 +114,16 @@
                 <br><br>
               </div>
             </div>
+            <form action="/updateauthor/<%=author._id%>">
+              <button class="btn btn-success btn-lg" id="update" style="margin-left: 10%; " >Update
+              </button>
+
+            </form>
+            <br>
+            <form action="/admin1/<%=author._id%>" onclick="return confirmAction();">
+              <button id="delete" class="btn btn-danger btn-lg" id="delete" style="margin-left: 10%;">Delete</button>
+
+            </form>
             
             <hr>
           <!--/stories-->
@@ -171,6 +181,18 @@
   </div>
 </footer>
 	<!-- script references -->
+  <script>
+    function confirmAction() {
+        let confirmAction = confirm("Are you sure you want to delete?");
+        if (confirmAction) {
+          alert("Deleted");
+        } else {
+          alert("Your request to delete has been canceled");
+          return false;
+
+        }
+      }
+  </script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
