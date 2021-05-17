@@ -94,20 +94,20 @@
                 <h1 class="myText">UPDATE YOUR AUTHOR</h1>
                 <br>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="author"  placeholder="<%=author.author%>" required >
+                    <input type="text" class="form-control" name="author"  value="<%=author.author%>" required >
                     <label  id="error1"></label>
                 </div>
                 
                 
                 <div class="form-group">
                   <label for="">Birth Date</label>
-                   <input type="date"  class="form-control" name="born" placeholder="<%=author.born%>" required>
+                   <input type="date"  class="form-control" name="born" value="<%=author.born%>" required>
                    <label  id="error4"></label>
                    
                 </div>
 
                 <div class="form-group">
-                  <input type="text"  class="form-control" name="about" required placeholder="<%=author.about%>" style="padding-right: 10%; padding-bottom: 10%;padding-top: 1.5%;">
+                  <input type="text"  class="form-control" name="about" required value="<%=author.about%>" style="padding-right: 10%; padding-bottom: 10%;padding-top: 1.5%;">
                   <label  id="error4"></label>
                   
                </div>
@@ -115,7 +115,7 @@
 
                <div class="form-group">
                  <label for="">Provide the URL to your Image*</label>
-                <input type="text"  class="form-control" name="image" placeholder="Image" required>
+                <input type="text"  class="form-control" name="image" value="<%=author.image%>" required>
                 <label  id="error4"></label>
                 
                </div>
