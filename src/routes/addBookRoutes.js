@@ -43,22 +43,34 @@ function router(nav) {
     });
     upbookRouter.post('/add/:id',function(req,res){
         const id = req.params.id;
-       
-        Bookdata.updateMany({_id:id},{
-            $set : {
-                title : req.body.title,
-                author : req.body.author,
-                genre : req.body.genre,
-                about : req.body.about,
-                image : req.body.image
+        let upload = multer({ storage: storage }).single('image');
+        let filePath = "";
+        upload(req, res, function (err){
+            if (err) console.log( err)
+            else {
+                filePath += req.file.path;
+                
+                filePath = filePath.substring(6, filePath.length);
+                Bookdata.updateMany({_id:id},{
+                    $set : {
+                        title : req.body.title,
+                        author : req.body.author,
+                        genre : req.body.genre,
+                        about : req.body.about,
+                        image : filePath
+                    }
+                }).then(function(books){
+                   
+                    res.redirect('/books')
+                    
+        
+        
+                });
             }
-        }).then(function(books){
-           
-            res.redirect('/books')
-            
-
 
         });
+       
+        
         
 
         

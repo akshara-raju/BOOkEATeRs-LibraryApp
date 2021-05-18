@@ -90,7 +90,7 @@
             
             <div  >
    
-              <form method="POST"  action="/admin1/addAuthor" >
+              <form method="POST"  action="/admin1/addAuthor" enctype="multipart/form-data">
                 <h1 class="myText">ADD ABOUT AUTHOR</h1>
                 <br>
                 <div class="form-group">
@@ -114,8 +114,8 @@
                 
 
                <div class="form-group">
-                 <label for="">Provide the URL to your Image*</label>
-                <input type="text"  class="form-control" name="image" placeholder="Image">
+                 <!-- <label for="">Provide the URL to your Image*</label> -->
+                <input type="file"  class="form-control" name="image" placeholder="Image">
                 <label  id="error4"></label>
                 
                </div>

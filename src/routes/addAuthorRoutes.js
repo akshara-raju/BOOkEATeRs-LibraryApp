@@ -25,15 +25,29 @@ function router(nav){
 
     admin1Router.post('/addAuthor', function(req,res){
         
-        var items = {
-            author: req.body.author,
-            born: req.body.born,
-            about: req.body.about,
-            image: req.body.image
-        }
-        var author = Authordata(items);
-        author.save();
-        res.redirect('/authors')
+        let upload = multer({ storage: storage }).single('image');
+        let filePath = "";
+        upload(req, res, function (err){
+            if (err) console.log( err)
+            else {
+                filePath += req.file.path;
+                
+                filePath = filePath.substring(6, filePath.length);
+                var items = {
+                    author: req.body.author,
+                    born: req.body.born,
+                    about: req.body.about,
+                    image: filePath
+                }
+                var author = Authordata(items);
+                author.save();
+                res.redirect('/authors')
+                
+            }
+
+        });
+        
+        
     });
 
     admin1Router.get('/:id',function(req,res){

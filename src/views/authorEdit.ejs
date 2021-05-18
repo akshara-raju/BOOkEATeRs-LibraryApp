@@ -90,7 +90,7 @@
             
             <div  >
    
-              <form method="POST"  action="/updateauthor/add/<%=id%>" >
+              <form method="POST"  action="/updateauthor/add/<%=id%>" enctype="multipart/form-data">
                 <h1 class="myText">UPDATE YOUR AUTHOR</h1>
                 <br>
                 <div class="form-group">
@@ -114,8 +114,8 @@
                 
 
                <div class="form-group">
-                 <label for="">Provide the URL to your Image*</label>
-                <input type="text"  class="form-control" name="image" value="<%=author.image%>" required>
+                 <!-- <label for="">Provide the URL to your Image*</label> -->
+                <input type="file"  class="form-control" name="image" value="<%=author.image%>" required>
                 <label  id="error4"></label>
                 
                </div>

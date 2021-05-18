@@ -1,5 +1,22 @@
 const express = require('express');
 const loginRouter = express.Router();
+nav1 = [
+    {
+        link:'/books', name:'Book'
+    },
+    {
+        link:'/authors', name: 'Author'
+    },
+    {
+        link:'/admin',name :'Add Books'
+    },
+    {
+        link:'/admin1',name:'Add Authors'
+    },
+    {
+        link:'/logout', name:'Sign Out'
+    }
+];
 
 function router3(nav)
 { 
@@ -12,6 +29,14 @@ loginRouter.get('/', function(req,res){
        
     }
     );//passed as object
+});
+loginRouter.get('/index',function(req,res){
+    const id=req.params.id;
+    res.render("index", 
+    {
+        nav,
+        title:"home"
+    });
 });
 loginRouter.get('/signup', function(req,res){
     const id=req.params.id;
@@ -28,10 +53,11 @@ loginRouter.get('/home',function(req,res){
     const id=req.params.id;
     res.render("home", 
     {
-        nav,
+        nav1,
         title:"home"
     });
 });
+
 
 
 
